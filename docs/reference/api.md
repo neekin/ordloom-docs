@@ -2,7 +2,7 @@
 
 接口相对于插件挂载点。例如挂载到 `/admin/` 时，下面的 `/api/me/` 实际为 `/admin/api/me/`。
 
-`model_key` 使用 `app_label.model_name`，例如 `projects.project`。接口保留 Django Session 与 CSRF 机制，不是另行发放 Bearer Token 的 API 网关。
+`model_key` 使用 `app_label.model_name`，例如 `projects.project`。下表管理接口保留 Django Session 与 CSRF 机制，外部只读数据服务的 Bearer 凭据不能替代管理会话。
 
 ## 常用接口
 
@@ -36,6 +36,9 @@
 | GET | `/api/dashboard-data/` | 工作台业务数据 |
 | GET | `/api/log/` | 操作记录 |
 | GET | `/api/health/` | 健康状态与版本 |
+| GET | `/api/task-diagnostics/?database=default` | 默认关闭；超级管理员只读任务历史与队列汇总 |
+
+任务诊断不提供执行、重试或删除 API。公开页面/轮播、公开数据与表单的密码限速共用预算；超限为 429 与 `Retry-After`，缓存故障为通用 503，详见 [指南](../guides/sharing-and-task-diagnostics.md)。
 
 系统设置保存使用 `PUT` 或 `POST /api/config/save/`，需要站点配置修改权限。
 

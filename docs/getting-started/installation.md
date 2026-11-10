@@ -7,10 +7,28 @@
 发行包内置已构建的前端资源，常规安装不需要 Node.js。需要修改前端组件时再准备源码构建环境。
 
 ```bash
-pip install django-simpleui-antd==1.0.3
+pip install ordloom==1.2.0
 ```
 
-这是当前真实发行包名，不要将产品品牌直接替换为尚未发布的 Python 包名。
+从 1.2.0 起 Python 发行包统一使用 Ordloom 品牌名；Django 注册和导入仍为 `simpleui_antd`。
+
+可选 GraphQL 数据层需要 Python 3.10+、Django 5.2+：
+
+```bash
+pip install 'ordloom[graphql]==1.2.0'
+```
+
+### 从旧发行包切换
+
+旧发行包与新包包含同一个应用，不要同时安装；先卸载旧包，再安装新包：
+
+```bash
+python -m pip uninstall django-simpleui-antd
+python -m pip install ordloom==1.2.0
+```
+
+保留现有 `INSTALLED_APPS`、URL 导入、`SIMPLEUI_*` 设置与 `simpleui_antd_*` 命令。
+包名切换本身不改表或迁移历史；升级功能仍按 [部署流程](../development/deployment.md) 执行迁移、静态文件收集并重启服务。
 
 ## 注册应用
 
@@ -59,6 +77,6 @@ python manage.py runserver
 
 访问 `/admin/`。普通登录账号需要处于启用状态并拥有后台访问资格；菜单内容还取决于各模型权限。
 
-插件自身迁移建立站点配置与个人工作台布局表，不会把你的业务模型迁移到另一套 ORM。
+插件自身迁移建立布局、页面、数据集及其他功能表，不会把你的业务模型迁移到另一套 ORM。
 
 下一步：[创建第一个业务模块](quickstart.md)。生产静态文件与媒体文件配置见[部署与升级](../development/deployment.md)。

@@ -1,2 +1,2 @@
 Django>=5.2,<5.3
-django-simpleui-antd==1.0.3
+ordloom==1.2.0

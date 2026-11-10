@@ -8,7 +8,7 @@
 
 ## 页面仍显示历史品牌
 
-当前 PyPI 稳定包为 1.0.3，固定品牌文字可能仍是历史名称。新产品品牌和兼容安装名的对应关系见[版本说明](reference/compatibility.md)。项目自己的站点标题可以通过 `SIMPLEUI_SITE_TITLE` 配置。
+当前版本为 `ordloom 1.2.0`；先检查是否仍安装旧名称的历史版本，再按 [切换说明](getting-started/installation.md#从旧发行包切换) 升级。项目自己的站点标题可以通过 `SIMPLEUI_SITE_TITLE` 配置，包名与内部应用名的对应见 [版本说明](reference/compatibility.md)。
 
 源码版本更新后，重建前端、同步包内静态资源，再重新部署与收集静态文件。不要只修改浏览器标题却遗漏登录页、页脚或演示资源。
 

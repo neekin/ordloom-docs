@@ -14,6 +14,7 @@
 * [表单与关联明细](guides/forms-and-inlines.md)
 * [账号与权限](guides/accounts-and-permissions.md)
 * [工作台、日志与回收站](guides/dashboard-and-logs.md)
+* [分享密码与任务诊断](guides/sharing-and-task-diagnostics.md)
 
 ## 组件指南
 

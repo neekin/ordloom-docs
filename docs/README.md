@@ -13,6 +13,7 @@ Ordloom 基于 React 19 与 Ant Design 6，读取已注册的 `ModelAdmin`，把
 | 内容与知识库 | 富文本、Markdown、图片、文件、JSON |
 | 组织与账号管理 | 原生 UserAdmin、项目密码策略、自定义登录字段、权限感知界面 |
 | 不同品牌的后台 | 主题、明暗模式、站点名称、Logo、密度及工作台布局 |
+| 页面公开分享与运维 | 分享密码失败限速、超级管理员只读任务运行诊断 |
 
 ## 从这里开始
 
@@ -23,6 +24,6 @@ Ordloom 基于 React 19 与 Ant Design 6，读取已注册的 `ModelAdmin`，把
 
 ## 版本与命名
 
-手册描述 1.0.3 已发布能力与当前源码中的品牌调整。**Ordloom 是产品品牌**；安装包 `django-simpleui-antd`、模块 `simpleui_antd` 和现有配置前缀仍是兼容入口，请按文档中的实际命令安装。当前没有要求用户迁移数据库表名或修改已有权限代号。
+手册对应 **ordloom 1.2.0**。Python 发行包统一为 `ordloom`，可选数据层为 `ordloom[graphql]`；模块 `simpleui_antd`、数据库表、迁移、管理命令和配置前缀继续兼容。
 
-新品牌界面的整理尚未重新发布到 PyPI，1.0.3 安装后的部分界面可能显示历史名称。设计探索图也不等同于已经交付的页面布局，详见[版本与兼容](reference/compatibility.md)和[设计方向](appendix/design.md)。
+旧包环境按 [安装与切换说明](getting-started/installation.md) 升级，不要同时安装两个发行包。新增限速和诊断见 [专项指南](guides/sharing-and-task-diagnostics.md)。设计探索图不等同于已交付的页面布局，详见 [版本与兼容](reference/compatibility.md) 和 [设计方向](appendix/design.md)。
