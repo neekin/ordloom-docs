@@ -28,6 +28,7 @@ python -m pip install ordloom==1.2.0
 ```
 
 保留现有 `INSTALLED_APPS`、URL 导入、`SIMPLEUI_*` 设置与 `simpleui_antd_*` 命令。
+同时将宿主 `requirements.txt`、`pyproject.toml` 或依赖锁文件中的旧发行包替换为 `ordloom`；可选数据层依赖使用 `ordloom[graphql]`，避免后续部署重新装回旧包。
 包名切换本身不改表或迁移历史；升级功能仍按 [部署流程](../development/deployment.md) 执行迁移、静态文件收集并重启服务。
 
 ## 注册应用
