@@ -1,6 +1,6 @@
 # 32 种字段组件
 
-字段通过元数据中的 `type` 选择前端控件。普通 Django 字段会自动识别，也可以用 `ModelAdmin.simpleui_antd_fields` 调整外观。
+字段通过元数据中的 `type` 选择前端控件。普通 Django 字段会自动识别，也可以用 `ModelAdmin.ordloom_fields` 调整外观。
 
 | 类型 | 用途 / 来源 | 主要值形态 |
 | --- | --- | --- |
@@ -43,8 +43,8 @@
 
 ```python
 from django.db import models
-from simpleui_antd.components import fields
-from simpleui_antd.editor.fields import RichTextField, MDTextField
+from ordloom.components import fields
+from ordloom.editor.fields import RichTextField, MDTextField
 
 class Content(models.Model):
     title = models.CharField(max_length=80)

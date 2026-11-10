@@ -6,7 +6,7 @@
 
 取消编辑恢复已经读取的布局；布局加载失败时先重试读取，再进行修改，避免覆盖尚未加载的个人偏好。
 
-统计与趋势使用当前请求可访问的模型 queryset。`SIMPLEUI_ANALYSIS = False` 可关闭统计类卡片，`SIMPLEUI_HOME_INFO = False` 可隐藏服务器信息。
+统计与趋势使用当前请求可访问的模型 queryset。`ORDLOOM_ANALYSIS = False` 可关闭统计类卡片，`ORDLOOM_HOME_INFO = False` 可隐藏服务器信息。
 
 ## 操作记录
 
@@ -26,7 +26,7 @@ class Document(models.Model):
     deleted_at = models.DateTimeField(null=True, blank=True)
 ```
 
-默认删除写入删除时间，列表和导出排除已删除记录。`ModelAdmin.simpleui_soft_delete = False` 可以显式关闭这项识别。
+默认删除写入删除时间，列表和导出排除已删除记录。`ModelAdmin.ordloom_soft_delete = False` 可以显式关闭这项识别。
 
 ## 恢复与永久删除
 

@@ -3,7 +3,7 @@
 业务访问密钥、回调 Token 等使用 `PasswordField`，或在实际表单中使用只写密码控件。
 
 ```python
-from simpleui_antd.components import fields
+from ordloom.components import fields
 
 api_key = fields.PasswordField("访问密钥", max_length=160, blank=True)
 ```

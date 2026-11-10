@@ -3,7 +3,7 @@
 `RichTextField` 保存 HTML 字符串，适合文章、公告、商品说明等内容。
 
 ```python
-from simpleui_antd.editor.fields import RichTextField
+from ordloom.editor.fields import RichTextField
 
 body = RichTextField("正文", blank=True)
 ```
@@ -21,7 +21,7 @@ body = RichTextField("正文", blank=True)
 ## 常用配置
 
 ```python
-simpleui_antd_fields = {
+ordloom_fields = {
     "body": {
         "rows": 12,
         "placeholder": "从这里开始编写正文…",

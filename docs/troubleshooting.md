@@ -8,7 +8,7 @@
 
 ## 页面仍显示历史品牌
 
-当前版本为 `ordloom 1.2.0`；先检查是否仍安装旧名称的历史版本，再按 [切换说明](getting-started/installation.md#从旧发行包切换) 升级。项目自己的站点标题可以通过 `SIMPLEUI_SITE_TITLE` 配置，包名与内部应用名的对应见 [版本说明](reference/compatibility.md)。
+本分支对应尚未发布的 `ordloom 2.0.0`，请确认安装的是当前开发源码或本地 wheel。项目自己的站点标题通过 `ORDLOOM_SITE_TITLE` 配置，包名与应用名均为 `ordloom`，见 [版本说明](reference/compatibility.md)。
 
 源码版本更新后，重建前端、同步包内静态资源，再重新部署与收集静态文件。不要只修改浏览器标题却遗漏登录页、页脚或演示资源。
 
@@ -36,7 +36,7 @@
 
 ## 没有进入原生 Admin 编辑页
 
-默认完全接管挂载点下管理页面。需要原生兜底时使用 `SIMPLEUI_ANTD_FULL_TAKEOVER = False`，或将两套入口挂在不同路径。
+默认完全接管挂载点下管理页面。需要原生兜底时使用 `ORDLOOM_FULL_TAKEOVER = False`，或将两套入口挂在不同路径。
 
 ## 地图空白
 

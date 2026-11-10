@@ -3,7 +3,7 @@
 `MDTextField` 保存 Markdown 原文，适合知识库、技术文档、协作说明。
 
 ```python
-from simpleui_antd.editor.fields import MDTextField
+from ordloom.editor.fields import MDTextField
 
 notes = MDTextField("协作文档", blank=True)
 ```
@@ -21,7 +21,7 @@ notes = MDTextField("协作文档", blank=True)
 普通 `TextField` 可以通过外观配置使用 Markdown 编辑器：
 
 ```python
-simpleui_antd_fields = {
+ordloom_fields = {
     "notes": {"type": "markdown", "rows": 14, "placeholder": "编写协作文档…"}
 }
 ```

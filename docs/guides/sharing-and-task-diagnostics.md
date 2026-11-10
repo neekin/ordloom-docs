@@ -1,13 +1,13 @@
 # 分享密码与任务诊断
 
-1.2.0 新增；复用现有权限与 Django 默认缓存，无新增迁移。安装包统一为 `ordloom`，内部应用仍为 `simpleui_antd`。
+以下为 2.0.0 开发版接入；复用现有权限与 Django 默认缓存。发行包和应用均为 `ordloom`，新数据库先执行迁移建表。
 
 ## 分享密码限速
 
 默认开启，配置默认值如下：
 
 ```python
-SIMPLEUI_ANTD_SHARE_LIMITS = {
+ORDLOOM_SHARE_LIMITS = {
     'enabled': True,
     'window_seconds': 300,
     'max_failures': 10,
@@ -33,7 +33,7 @@ SIMPLEUI_ANTD_SHARE_LIMITS = {
 默认关闭。启用后，超级管理员账号菜单显示「后台任务运行诊断」：
 
 ```python
-SIMPLEUI_ANTD_TASK_DIAGNOSTICS = {
+ORDLOOM_TASK_DIAGNOSTICS = {
     'enabled': True,
     'history_size': 10,
     'retention_seconds': 604800,
@@ -56,11 +56,11 @@ SIMPLEUI_ANTD_TASK_DIAGNOSTICS = {
 
 | 任务 | 原有管理命令 |
 | --- | --- |
-| Webhook 投递 | `simpleui_antd_deliver_webhooks` |
-| 报表导出 | `simpleui_antd_export_reports` |
-| 报表文件清理 | `simpleui_antd_export_reports --prune-only` |
-| 审计留存 | `simpleui_antd_prune_audit` |
-| 分享访问清理 | `simpleui_antd_prune_share_visits` |
+| Webhook 投递 | `ordloom_deliver_webhooks` |
+| 报表导出 | `ordloom_export_reports` |
+| 报表文件清理 | `ordloom_export_reports --prune-only` |
+| 审计留存 | `ordloom_prune_audit` |
+| 分享访问清理 | `ordloom_prune_share_visits` |
 
 仅显式 `--apply` 写入执行记录，默认预览不写遥测；原参数、输出与退出码保持兼容。
 仍由宿主调度原命令，网页不提供执行/重试/删除操作。启用诊断不替代各业务功能自身的开关。
@@ -78,4 +78,4 @@ SIMPLEUI_ANTD_TASK_DIAGNOSTICS = {
 每进程独立的 LocMemCache 无法提供跨进程额度或完整运行历史；非已识别共享缓存会在诊断页提示共享能力待确认。
 缓存记录会因数量限制、TTL 或逐出消失，不作为不可变审计记录。
 
-调整设置后运行 `python manage.py simpleui_antd_check`，再按宿主流程重启 Web 与任务进程；具体部署步骤见 [部署与升级](../development/deployment.md)。
+调整设置后运行 `python manage.py ordloom_check`，再按宿主流程重启 Web 与任务进程；具体部署步骤见 [部署与升级](../development/deployment.md)。

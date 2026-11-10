@@ -7,29 +7,19 @@
 发行包内置已构建的前端资源，常规安装不需要 Node.js。需要修改前端组件时再准备源码构建环境。
 
 ```bash
-pip install ordloom==1.2.0
+pip install ordloom==2.0.0
 ```
 
-从 1.2.0 起 Python 发行包统一使用 Ordloom 品牌名；Django 注册和导入仍为 `simpleui_antd`。
+以上为 2.0.0 正式发布后的安装命令；当前开发版尚未上传，请在源码仓库根目录使用 `pip install -e ./django`，或安装本地构建的 `ordloom-2.0.0-py3-none-any.whl`。
+Django 注册和导入均为 `ordloom`。
 
 可选 GraphQL 数据层需要 Python 3.10+、Django 5.2+：
 
 ```bash
-pip install 'ordloom[graphql]==1.2.0'
+pip install 'ordloom[graphql]==2.0.0'
 ```
 
-### 从旧发行包切换
-
-旧发行包与新包包含同一个应用，不要同时安装；先卸载旧包，再安装新包：
-
-```bash
-python -m pip uninstall django-simpleui-antd
-python -m pip install ordloom==1.2.0
-```
-
-保留现有 `INSTALLED_APPS`、URL 导入、`SIMPLEUI_*` 设置与 `simpleui_antd_*` 命令。
-同时将宿主 `requirements.txt`、`pyproject.toml` 或依赖锁文件中的旧发行包替换为 `ordloom`；可选数据层依赖使用 `ordloom[graphql]`，避免后续部署重新装回旧包。
-包名切换本身不改表或迁移历史；升级功能仍按 [部署流程](../development/deployment.md) 执行迁移、静态文件收集并重启服务。
+按全新库使用新数据库；不提供旧名称别名、旧表改名或历史权限迁移工具。
 
 ## 注册应用
 
@@ -43,7 +33,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "simpleui_antd",
+    "ordloom",
     "projects",
 ]
 ```
@@ -59,12 +49,12 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path("admin/", include("simpleui_antd.urls")),
+    path("admin/", include("ordloom.urls")),
     path("admin/", admin.site.urls),
 ]
 ```
 
-默认接管该挂载点下的管理界面路径。若希望未匹配的业务页面回退原生 Admin，配置 `SIMPLEUI_ANTD_FULL_TAKEOVER = False`。
+默认接管该挂载点下的管理界面路径。若希望未匹配的业务页面回退原生 Admin，配置 `ORDLOOM_FULL_TAKEOVER = False`。
 
 也可以将插件挂到 `/console/`，原生 Admin 留在 `/admin/`。页面会根据挂载位置生成 API 前缀。
 

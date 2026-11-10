@@ -24,6 +24,6 @@ Ordloom 基于 React 19 与 Ant Design 6，读取已注册的 `ModelAdmin`，把
 
 ## 版本与命名
 
-手册对应 **ordloom 1.2.0**。Python 发行包统一为 `ordloom`，可选数据层为 `ordloom[graphql]`；模块 `simpleui_antd`、数据库表、迁移、管理命令和配置前缀继续兼容。
+本分支手册对应 **Ordloom 2.0.0 开发版，尚未发布**。发行包和模块为 `ordloom`，可选数据层为 `ordloom[graphql]`；表名、迁移应用标签和权限前缀均为 `ordloom`，设置统一为 `ORDLOOM_*`，管理命令为 `ordloom_*`。
 
-旧包环境按 [安装与切换说明](getting-started/installation.md) 升级，不要同时安装两个发行包。新增限速和诊断见 [专项指南](guides/sharing-and-task-diagnostics.md)。设计探索图不等同于已交付的页面布局，详见 [版本与兼容](reference/compatibility.md) 和 [设计方向](appendix/design.md)。
+按全新库使用新数据库，不提供旧名称兼容层或历史升级工具；请按 [安装说明](getting-started/installation.md) 使用开发源码或本地 wheel。限速和诊断见 [专项指南](guides/sharing-and-task-diagnostics.md)。设计探索图不等同于已交付的页面布局，详见 [版本与接入](reference/compatibility.md) 和 [设计方向](appendix/design.md)。

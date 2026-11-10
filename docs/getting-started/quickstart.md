@@ -48,14 +48,14 @@ class ProjectAdmin(admin.ModelAdmin):
         ("基本信息", {"fields": ["name", "status", "budget"]}),
         ("补充说明", {"fields": ["description"]}),
     ]
-    simpleui_antd_fields = {
+    ordloom_fields = {
         "name": {"placeholder": "例如：客户门户升级"},
         "budget": {"precision": 2},
         "description": {"rows": 5, "span": 2},
     }
 ```
 
-这里的 `simpleui_antd_fields` 是现有字段外观配置入口；产品改名不要求修改已有配置键。
+这里的 `ordloom_fields` 是现有字段外观配置入口；产品改名不要求修改已有配置键。
 
 ## 3. 迁移并打开页面
 

@@ -14,9 +14,9 @@ Ordloom 是面向 Django Admin 的业务工作台插件，提供统一外观、�
 
 ## 文档版本
 
-当前稳定发行版为 **ordloom 1.2.0**，安装使用 `pip install ordloom`。本版包含分享密码限速和后台任务运行诊断；Django 模块与配置键继续兼容。旧包环境按 [切换说明](docs/getting-started/installation.md#从旧发行包切换) 先卸载旧发行包，再安装新包。
+本分支手册对应 **Ordloom 2.0.0 开发版，尚未发布**。发行包、Python 模块、Django 应用、配置、管理命令、表名及权限标签已统一命名；按全新库接入，不提供旧名称兼容层或历史库升级工具。
 
-发行页：[PyPI](https://pypi.org/project/ordloom/1.2.0/)；新增能力与默认开关见 [分享密码与任务诊断](docs/guides/sharing-and-task-diagnostics.md)。
+当前开发版请使用本地源码或 wheel，安装步骤见 [接入说明](docs/getting-started/installation.md)。分享限速与任务诊断的默认开关见 [指南](docs/guides/sharing-and-task-diagnostics.md)。
 
 ## 本地检查
 

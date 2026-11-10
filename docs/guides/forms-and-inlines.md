@@ -11,7 +11,7 @@ fieldsets = [
     ("基本信息", {"fields": ["name", "budget", "status"]}),
     ("内容资料", {"fields": ["body", "attachment"]}),
 ]
-simpleui_antd_fields = {
+ordloom_fields = {
     "name": {"placeholder": "请输入项目名称"},
     "body": {"rows": 12},
     "attachment": {"accept": ".pdf,.txt", "max_upload_size_mb": 20},

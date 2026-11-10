@@ -8,7 +8,7 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
 INSTALLED_APPS = [
     'django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes',
     'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles',
-    'simpleui_antd', 'projects',
+    'ordloom', 'projects',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware',
@@ -35,7 +35,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_PASSWORD_VALIDATORS = [{'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', 'OPTIONS': {'min_length': 10}}]
 
 # These are the current compatible configuration keys, regardless of product branding.
-SIMPLEUI_SITE_TITLE = '序衡 Ordloom 示例'
-SIMPLEUI_SITE_SUBTITLE = '团队 · 项目 · 任务'
-SIMPLEUI_HOME_TITLE = '项目工作台'
-SIMPLEUI_DEFAULT_THEME = 'teal'
+ORDLOOM_SITE_TITLE = '序衡 Ordloom 示例'
+ORDLOOM_SITE_SUBTITLE = '团队 · 项目 · 任务'
+ORDLOOM_HOME_TITLE = '项目工作台'
+ORDLOOM_DEFAULT_THEME = 'teal'

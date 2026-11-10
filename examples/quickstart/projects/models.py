@@ -1,6 +1,6 @@
 from django.db import models
-from simpleui_antd.components import fields
-from simpleui_antd.editor.fields import MDTextField, RichTextField
+from ordloom.components import fields
+from ordloom.editor.fields import MDTextField, RichTextField
 
 class Team(models.Model):
     name = models.CharField('团队名称', max_length=80)

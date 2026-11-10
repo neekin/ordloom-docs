@@ -21,7 +21,7 @@ registerField('currency', function Currency({ field, modelKey, ...control }) {
 后端选择该类型：
 
 ```python
-simpleui_antd_fields = {
+ordloom_fields = {
     "budget": {"type": "currency", "precision": 2}
 }
 ```

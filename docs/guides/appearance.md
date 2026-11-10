@@ -5,16 +5,16 @@
 在 Django 设置中定义工作空间名称、Logo 和首页标题：
 
 ```python
-SIMPLEUI_SITE_TITLE = "研究协作平台"
-SIMPLEUI_SITE_SUBTITLE = "课题 · 文档 · 研究进展"
-SIMPLEUI_LOGO = "/static/brand/logo.svg"
-SIMPLEUI_HOME_TITLE = "研究工作台"
-SIMPLEUI_DEFAULT_THEME = "teal"
+ORDLOOM_SITE_TITLE = "研究协作平台"
+ORDLOOM_SITE_SUBTITLE = "课题 · 文档 · 研究进展"
+ORDLOOM_LOGO = "/static/brand/logo.svg"
+ORDLOOM_HOME_TITLE = "研究工作台"
+ORDLOOM_DEFAULT_THEME = "teal"
 ```
 
 这些兼容配置键继续有效。未设置站点标题时使用 `admin.site.site_header`；项目名称与插件产品品牌分别管理。
 
-`SIMPLEUI_LOGO` 可以是文字或图片路径。图片请放在项目的静态资源中，并跟随部署收集。
+`ORDLOOM_LOGO` 可以是文字或图片路径。图片请放在项目的静态资源中，并跟随部署收集。
 
 ## 个人外观
 

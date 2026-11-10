@@ -5,7 +5,7 @@
 普通带 `choices` 的字段会按实际类型生成选择控件。使用专用字段可明确选择交互：
 
 ```python
-from simpleui_antd.components import fields
+from ordloom.components import fields
 
 status = fields.RadioField(
     max_length=16, choices=[("draft", "草稿"), ("done", "完成")], default="draft"

@@ -21,7 +21,7 @@ class ProjectAdmin(admin.ModelAdmin):
         ('基本信息', {'fields': ['name', 'budget', 'status', 'teams']}),
         ('资料与文档', {'fields': ['body', 'notes', 'settings', 'cover', 'attachment']}),
     ]
-    simpleui_antd_fields = {
+    ordloom_fields = {
         'budget': {'precision': 2, 'min': 0},
         'notes': {'rows': 12},
         'settings': {'span': 2},

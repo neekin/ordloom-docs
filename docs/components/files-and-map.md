@@ -17,7 +17,7 @@ attachment = models.FileField("附件", upload_to="projects/files/", blank=True)
 | --- | --- |
 | 图片大小 | 默认 10 MB，字段可配置 |
 | 普通文件大小 | 默认 50 MB，字段可配置 |
-| 服务端总上限 | `SIMPLEUI_ANTD_MAX_UPLOAD_SIZE_MB`，默认 50 MB |
+| 服务端总上限 | `ORDLOOM_MAX_UPLOAD_SIZE_MB`，默认 50 MB |
 | 编辑器图片 | 默认上限 10 MB，检查所属字段与主从记录 |
 | 格式提示 | `accept`，例如 `.pdf,.txt` |
 
@@ -34,7 +34,7 @@ attachment = models.FileField("附件", upload_to="projects/files/", blank=True)
 `MapField` 保存 `经度,纬度` 字符串，例如 `120.155100,30.274100`。可以点击地图、拖动标记或填写坐标。
 
 ```python
-simpleui_antd_fields = {
+ordloom_fields = {
     "position": {
         "tile_url": "/tiles/{z}/{x}/{y}.png",
         "tile_attribution": "项目地图服务",

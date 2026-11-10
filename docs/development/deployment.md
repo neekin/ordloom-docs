@@ -11,7 +11,7 @@ python manage.py collectstatic --noinput
 
 按项目原有流程重启应用服务，并检查 `/admin/api/health/`；如果挂载点不是 `/admin/`，相应调整地址。
 
-1.2.0 相对 1.1.0 没有新增数据库迁移；从更早版本升级仍需执行已有待应用迁移。旧发行包先按 [安装说明](../getting-started/installation.md#从旧发行包切换) 切换到 `ordloom`。
+本分支为 2.0.0 开发版，请按 [安装说明](../getting-started/installation.md) 从源码或本地 wheel 接入新数据库；迁移标签、表和权限前缀均为 `ordloom`。不提供旧名称兼容层或历史库升级工具。
 
 分享密码限速默认开启，多 Web/命令进程需使用同一具备原子计数的默认共享缓存。后台任务运行诊断默认关闭，启用后只观测显式 `--apply`，宿主仍负责 cron/任务平台调度。
 配置、默认额度与只读权限见 [专项指南](../guides/sharing-and-task-diagnostics.md)。缓存历史不等同实时进程心跳或持久审计。
