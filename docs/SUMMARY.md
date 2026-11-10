@@ -64,4 +64,5 @@
 ## 文档维护
 
 * [GitBook 配置](publishing/gitbook.md)
+* [自托管发布(VitePress + gh-pages)](publishing/gh-pages.md)
 * [界面与交互](appendix/design.md)
