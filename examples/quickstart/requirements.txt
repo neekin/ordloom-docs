@@ -1,2 +1,2 @@
 Django>=5.2,<5.3
-ordloom==2.0.0
+ordloom==1.0.0

@@ -1,8 +1,8 @@
 # 配置参考
 
-以下为 2.0.0 开发版读取的配置名称，统一使用 `ORDLOOM_*`，无旧名称别名。
+以下为 Ordloom 1.0.0 读取的配置名称，统一使用 `ORDLOOM_*`。
 
-## 分享与后台任务（1.2.0）
+## 分享与后台任务
 
 | 设置 | 默认 / 行为 |
 | --- | --- |
@@ -10,6 +10,26 @@
 | `ORDLOOM_TASK_DIAGNOSTICS` | 默认关闭；启用后超级管理员只读查看安全执行元数据与队列汇总 |
 
 完整配置、共享缓存要求和保留边界见 [分享密码与任务诊断](../guides/sharing-and-task-diagnostics.md)。
+
+## 数据、协作与集成开关
+
+以下能力按宿主需要启用；界面可见性不代替数据权限。
+
+| 设置 | 默认 / 内容 | 指南 |
+| --- | --- | --- |
+| `ORDLOOM_GRAPHQL` | 默认关闭；字段白名单、查询预算与能力目录 | [模型与权限](../data/graphql.md) |
+| `ORDLOOM_EVENTS` | 默认关闭；失效通知、签名与订阅预算 | [事件与服务](../data/events-and-services.md) |
+| `ORDLOOM_REPORT_EXPORTS` | 默认关闭；导出调度、留存、文件和源记录预算 | [报表与导出](../data/reports.md) |
+| `ORDLOOM_COLLABORATION` | 默认关闭；工作区、角色与逐资源授权 | [协作](../guides/collaboration.md) |
+| `ORDLOOM_ORGANIZATIONS` | 默认关闭；宿主组织、成员与稳定身份映射 | [组织接入](../guides/collaboration.md) |
+| `ORDLOOM_DATA_SERVICES` | 默认关闭；独立服务身份、只读字段和固定版本授权 | [只读服务](../data/events-and-services.md) |
+| `ORDLOOM_WEBHOOKS` | 默认关闭；批准目标、后台权限上下文与机器人 | [Webhook](../guides/webhooks.md) |
+| `ORDLOOM_PWA` | 离线程序和业务快照分别显式开启 | [离线](../guides/offline.md) |
+| `ORDLOOM_SESSION_DEVICES` | 默认关闭；会话设备、中间件及保留数量 | [会话安全](../guides/security.md) |
+| `ORDLOOM_SHARE_ANALYTICS` | 默认关闭；分享入口访问记录及预算 | [分享](../guides/sharing.md) |
+| `ORDLOOM_AUDIT_RETENTION` | 默认永久保留；可配置分批清理周期 | [审计留存](../guides/notifications-and-audit.md) |
+
+使用手册中相应模块的完整字典示例配置；不要仅为了显示菜单开启缺少依赖或调度的能力。
 
 ## 站点与工作空间
 

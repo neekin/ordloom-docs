@@ -1,6 +1,6 @@
 # 可运行的 Ordloom 接入示例
 
-本分支示例面向尚未发布的 `ordloom==2.0.0`，请先安装当前开发源码或本地 wheel。示例展示团队、项目、预算、状态、富文本、Markdown、JSON、附件以及任务明细；Django 应用名为 `ordloom`。
+示例使用 `ordloom==1.0.0`，展示团队、项目、预算、状态、富文本、Markdown、JSON、附件以及任务明细；Django 应用名为 `ordloom`。
 
 使用 Python 3.10 或更新版本；以下命令在本目录执行。
 

@@ -1,6 +1,6 @@
 # 序衡 Ordloom 使用手册
 
-Ordloom 是面向 Django Admin 的业务工作台插件，提供统一外观、模型管理、复杂表单、关联明细和内容编辑能力。
+Ordloom 1.0.0 是面向 Django 的管理工作台、可视化页面搭建和业务数据分析库。
 
 本仓库公开维护产品手册、可运行示例和 GitBook 配置。
 
@@ -10,13 +10,16 @@ Ordloom 是面向 Django Admin 的业务工作台插件，提供统一外观、�
 - [安装与接入](docs/getting-started/installation.md)
 - [运行完整示例](examples/quickstart/README.md)
 - [32 种字段组件](docs/components/overview.md)
+- [数据集与组件绑定](docs/data/datasets.md)
+- [大屏与 H5](docs/guides/visual-pages.md)
+- [1.0.0 完整发布说明](docs/releases/1.0.0.md)
 - [GitBook 同步方式](docs/publishing/gitbook.md)
 
 ## 文档版本
 
-本分支手册对应 **Ordloom 2.0.0 开发版，尚未发布**。发行包、Python 模块、Django 应用、配置、管理命令、表名及权限标签已统一命名；按全新库接入，不提供旧名称兼容层或历史库升级工具。
+本手册对应 **Ordloom 1.0.0**。发行包、Python 模块和 Django 应用为 `ordloom`，设置为 `ORDLOOM_*`，字段/Admin 扩展点与管理命令为 `ordloom_*`。
 
-当前开发版请使用本地源码或 wheel，安装步骤见 [接入说明](docs/getting-started/installation.md)。分享限速与任务诊断的默认开关见 [指南](docs/guides/sharing-and-task-diagnostics.md)。
+使用 `pip install ordloom==1.0.0` 安装，或使用 `ordloom[graphql]==1.0.0` 启用可选数据层。完整步骤见 [接入说明](docs/getting-started/installation.md)，默认开关和运行边界见各模块指南。
 
 ## 本地检查
 

@@ -42,6 +42,29 @@
 
 系统设置保存使用 `PUT` 或 `POST /api/config/save/`，需要站点配置修改权限。
 
+## 页面与数据入口
+
+| 方法 | 相对地址 | 内容 |
+| --- | --- | --- |
+| GET / POST | `/api/pages/` | 按当前资源范围读取或创建页面 |
+| GET | `/api/share/<uuid>/` | 公开入口，继续核对状态、令牌和密码 |
+| POST | `/api/share/<uuid>/submit/` | 公开页面表单提交与去重 |
+| GET | `/api/pages/<id>/submissions/` | 当前资源管理范围内的答卷 |
+| GET / POST | `/api/screen-playlists/` | 大屏轮播管理 |
+| POST | `/api/graphql/` | Session/CSRF 下的受限只读 GraphQL |
+| GET | `/api/datasets/catalog/` | 模型、字段与运算能力目录 |
+| GET / POST | `/api/datasets/` | 数据集管理 |
+| POST | `/api/datasets/<id>/publish/` | 发布不可变查询版本 |
+| POST | `/api/datasets/<id>/execute/` | 显式版本、参数及当前权限执行 |
+| GET / POST | `/api/reports/` | 自助报表管理 |
+| POST | `/api/reports/<id>/execute/` | 报表执行 |
+| GET / POST | `/api/report-boards/` | 跨报表看板管理 |
+| POST | `/api/data/graphql/` | 独立只读服务凭据的受限 GraphQL |
+| POST | `/api/data/datasets/<id>/versions/<number>/` | 独立只读服务执行固定版本 |
+
+所有路径相对于实际挂载点。详细定义、实参与预算见 [GraphQL](../data/graphql.md)、[数据集](../data/datasets.md)、[报表](../data/reports.md) 和 [只读服务](../data/events-and-services.md)。
+资源管理权不会自动授予源模型的业务数据权限；外部服务的 Bearer 不能访问管理写入接口，公开分享也不能执行私有报表。
+
 ## JSON 响应
 
 成功：
@@ -74,7 +97,7 @@
     "name": "客户门户升级",
     "status": "draft",
     "budget": "12000.50",
-    "description": "第一阶段需求整理"
+    "description": "模型目录与明细需求整理"
   }
 }
 ```

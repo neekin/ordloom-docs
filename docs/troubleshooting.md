@@ -8,7 +8,7 @@
 
 ## 页面仍显示历史品牌
 
-本分支对应尚未发布的 `ordloom 2.0.0`，请确认安装的是当前开发源码或本地 wheel。项目自己的站点标题通过 `ORDLOOM_SITE_TITLE` 配置，包名与应用名均为 `ordloom`，见 [版本说明](reference/compatibility.md)。
+确认安装的是 `ordloom==1.0.0`，并检查部署后的包版本及静态文件。项目自己的站点标题通过 `ORDLOOM_SITE_TITLE` 配置，见 [环境与接入](reference/compatibility.md)。
 
 源码版本更新后，重建前端、同步包内静态资源，再重新部署与收集静态文件。不要只修改浏览器标题却遗漏登录页、页脚或演示资源。
 

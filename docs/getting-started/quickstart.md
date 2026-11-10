@@ -55,7 +55,7 @@ class ProjectAdmin(admin.ModelAdmin):
     }
 ```
 
-这里的 `ordloom_fields` 是现有字段外观配置入口；产品改名不要求修改已有配置键。
+`ordloom_fields` 用于配置字段外观；业务校验、只读权限和保存逻辑仍由 Django 表单及 Admin 钩子执行。
 
 ## 3. 迁移并打开页面
 
