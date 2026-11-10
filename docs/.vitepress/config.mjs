@@ -25,12 +25,14 @@ const sidebar = sidebarFromSummary()
 export default defineConfig({
   lang: 'zh-CN',
   title: '序衡 Ordloom 使用手册',
+  head: [['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css', crossorigin: 'anonymous', referrerpolicy: 'no-referrer' }]],
   description: '可配置的 Django Admin 工作台:可视化页面搭建、数字大屏、业务报表、表单问卷、数据订阅与企业级安全。',
   base: '/ordloom-docs/',
   srcDir: '.',
   ignoreDeadLinks: false,
   head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/ordloom-docs/.gitbook/assets/ordloom-cover.svg' }]],
   themeConfig: {
+    logo: '/logo.png',
     siteTitle: '序衡 Ordloom 使用手册',
     nav: [
       { text: '手册首页', link: '/' },

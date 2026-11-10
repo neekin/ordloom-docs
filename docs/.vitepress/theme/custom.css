@@ -1,0 +1,78 @@
+/* 序衡 Ordloom 品牌主题:配色与官网(ordloom-site)完全同步 */
+:root {
+  --vp-c-brand-1: #6366f1;
+  --vp-c-brand-2: #8b5cf6;
+  --vp-c-brand-3: #6366f1;
+  --vp-c-brand-soft: rgba(99, 102, 241, 0.14);
+  --vp-c-text-1: #10182b;
+  --vp-c-text-2: #5b6579;
+  --vp-c-text-3: #7c86ad;
+  --vp-c-divider: #e6e9f2;
+  --vp-c-gutter: #e6e9f2;
+  --vp-c-bg-soft: #f6f7fc;
+  --vp-font-family-base: 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --vp-code-block-bg: #0d1326; /* 与官网代码块同色 */
+
+  --vp-button-brand-bg: linear-gradient(120deg, #6366f1, #8b5cf6);
+  --vp-button-brand-hover-bg: linear-gradient(120deg, #4f46e5, #7c3aed);
+  --vp-button-brand-active-bg: linear-gradient(120deg, #4f46e5, #7c3aed);
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-text: #fff;
+  --vp-button-brand-hover-text: #fff;
+  --vp-button-brand-active-text: #fff;
+}
+.dark {
+  --vp-c-brand-1: #a5b4fc;
+  --vp-c-brand-2: #c4b5fd;
+  --vp-c-brand-3: #6366f1;
+  --vp-c-brand-soft: rgba(99, 102, 241, 0.16);
+  --vp-c-text-1: #e6ebff;
+  --vp-c-text-2: #9aa6c3;
+  --vp-c-text-3: #7f93b3;
+  --vp-c-divider: #25324a;
+  --vp-c-gutter: #25324a;
+  --vp-c-bg-soft: #141d31;
+}
+
+/* 主页 Hero:品牌渐变标题 */
+.VPHero .name {
+  background: linear-gradient(120deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.VPButton.brand {
+  border-radius: 12px;
+  box-shadow: 0 10px 26px rgba(99, 102, 241, 0.28);
+}
+.VPButton.brand:hover { transform: translateY(-1px); }
+
+/* 主页特性卡:官网同款圆角与悬浮 */
+.VPFeature {
+  border-radius: 16px !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.VPFeature:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(16, 24, 43, 0.09);
+}
+.VPFeature .icon i {
+  font-size: 20px;
+  color: var(--vp-c-brand-1);
+}
+.dark .VPFeature .icon i { color: #a5b4fc; }
+
+/* 代码块:官网同款深色底 */
+.vp-doc div[class*='language-'] { border-radius: 12px; }
+.vp-doc .copy { opacity: 0.85; }
+
+/* 侧边栏激活项渐变描边 */
+.VPSidebarItem.level-2.is-active > .item > .link > .text {
+  background: linear-gradient(120deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+}
