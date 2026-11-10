@@ -1,33 +1,22 @@
-# 自托管发布(VitePress + gh-pages)
+# 发布 VitePress 手册
 
-除 GitBook 外,手册也可以自托管:由 VitePress 构建,发布到本仓库的 `gh-pages` 分支,地址为
-<https://neekin.github.io/ordloom-docs/>。内容源仍是 `docs/` 目录与 `SUMMARY.md` 导航,
-两套发布方式共享同一份 Markdown。
+手册由 VitePress 构建，站点地址为 [Ordloom Docs](https://neekin.github.io/ordloom-docs/)。源内容位于 `docs/`，侧栏从 `SUMMARY.md` 生成；首页品牌、Logo、图标与样式保留在 VitePress 配置和主题中。
 
-## 本地构建与发布
+## 构建与预览
 
 ```bash
-npm install
-npm run docs:build          # 产物在 docs/.vitepress/dist
-git checkout gh-pages
-cp -R docs/.vitepress/dist/* .
-git add -A && git commit -m "publish: 手册更新"
-git push origin gh-pages
+npm ci
+python scripts/check_docs.py
+npm run docs:build
+npm run docs:preview
 ```
 
-## 自动发布(可选)
+站点基础路径为 `/ordloom-docs/`。重新构建后重启预览进程，验证首页、导航、图片和版本链接。
 
-仓库提供 GitHub Actions 工作流(推送 main 后自动构建并发布到 gh-pages):
+## 发布分支
 
-```yaml
-# .github/workflows/deploy-docs.yml
-on:
-  push:
-    branches: [main]
-```
+将构建目录 `docs/.vitepress/dist/` 发布到本仓库 `gh-pages` 分支。使用独立临时 worktree 或 CI checkout，保留该分支现有历史，避免在源工程切换分支覆盖未提交文档；产物包含 `.nojekyll`。
 
-> 推送工作流文件需要本地 Git 凭据具备 `workflow` scope;
-> 可执行 `gh auth refresh -h github.com -s workflow` 授权后推送,或直接在 GitHub 网页端创建该文件。
+在 GitHub Pages 设置中选择 `gh-pages` 的根目录。仓库当前没有自动构建工作流；推送源文档并不会自动更新站点，需要显式提交构建产物。也可由维护者配置 CI，但应在仓库中真实落地后再描述为已自动发布。
 
-侧边栏由 `docs/.vitepress/config.mjs` 在构建时从 `SUMMARY.md` 生成;新增页面时按 SUMMARY 约定
-登记即可,两套发布方式的导航保持一致。
+新增页面需同步 `docs/SUMMARY.md` 并通过检查。完整目录约定见 [VitePress 文档结构](structure.md)。

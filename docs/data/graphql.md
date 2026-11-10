@@ -8,7 +8,7 @@
 启用后继续复用管理接口与数据权限。本扩展需要 Python ≥ 3.10、Django ≥ 5.2。
 
 ```bash
-pip install 'ordloom[graphql]==1.0.0'
+pip install 'ordloom[graphql]==1.0.1'
 ```
 
 在宿主项目中启用，并明确列出允许开放的模型字段；模型必须已经注册到 Django Admin：
@@ -277,5 +277,5 @@ class OrderAdmin(admin.ModelAdmin):
 固定数据集版本、页面归属及服务身份范围保持原语义；适配没有新增迁移，也不要求安装 Strawberry 才能导入证书类型。
 回归见 [`test_sql_scopes.py`](https://github.com/neekin/simpleui-antd/blob/main/django/ordloom/tests/test_sql_scopes.py)，隔离双数据库验证见 [容量文档](https://github.com/neekin/simpleui-antd/blob/main/docs/capacity.md)。
 
-目录按字段类型声明筛选、排序和聚合。源码新增能力中，`supportsPush` 按后台入口、事件开关与 Channels layer 配置返回，外部只读服务始终为 false；详见 [推送能力声明](../guides/operations-and-submission-exports.md#推送能力声明)。已发布 1.0.0 的该标识仍为 false。
+目录按字段类型声明筛选、排序和聚合。源码新增能力中，`supportsPush` 按后台入口、事件开关与 Channels layer 配置返回，外部只读服务始终为 false；详见 [推送能力声明](../guides/operations-and-submission-exports.md#推送能力声明)。已发布 1.0.1 的该标识仍为 false。
 数据集保存、版本与可视化绑定见下节；组件支持独立更新策略，事件通知通过可选扩展启用。

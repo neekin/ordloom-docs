@@ -1,6 +1,6 @@
 # 配置参考
 
-以下为 Ordloom 1.0.0 读取的配置名称，统一使用 `ORDLOOM_*`。
+以下为 Ordloom 1.0.1 读取的配置名称，统一使用 `ORDLOOM_*`。
 
 ## 分享与后台任务
 
@@ -11,7 +11,7 @@
 
 完整配置、共享缓存要求和保留边界见 [分享密码与任务诊断](../guides/sharing-and-task-diagnostics.md)。
 
-源码新增的 `ORDLOOM_TASK_ALERTS`、`ORDLOOM_SUBMISSION_EXPORTS` 默认关闭；`ORDLOOM_SUBMISSION_SEARCH_ROWS` 默认 100000，详见 [P1 运维与答卷指南](../guides/operations-and-submission-exports.md)。这些增强尚未包含在 PyPI 1.0.0 中。
+1.0.1 的 `ORDLOOM_TASK_ALERTS`、`ORDLOOM_SUBMISSION_EXPORTS` 默认关闭；`ORDLOOM_SUBMISSION_SEARCH_ROWS` 默认 100000，详见 [P1 运维与答卷指南](../guides/operations-and-submission-exports.md)。这些增强自 1.0.1 起提供。
 
 ## 数据、协作与集成开关
 
@@ -20,6 +20,7 @@
 | 设置 | 默认 / 内容 | 指南 |
 | --- | --- | --- |
 | `ORDLOOM_GRAPHQL` | 默认关闭；字段白名单、查询预算与能力目录 | [模型与权限](../data/graphql.md) |
+| `ORDLOOM_PUBLIC_EVENTS` | 默认关闭；按页授权的同源短期票据、失效通知、心跳与限速 | [公开通知](../guides/conditional-pages-and-antv-reports.md) |
 | `ORDLOOM_EVENTS` | 默认关闭；失效通知、签名与订阅预算 | [事件与服务](../data/events-and-services.md) |
 | `ORDLOOM_REPORT_EXPORTS` | 默认关闭；导出调度、留存、文件和源记录预算 | [报表与导出](../data/reports.md) |
 | `ORDLOOM_COLLABORATION` | 默认关闭；工作区、角色与逐资源授权 | [协作](../guides/collaboration.md) |

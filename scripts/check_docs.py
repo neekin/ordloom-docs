@@ -85,7 +85,7 @@ def check_links(path, source):
             try:
                 destination.relative_to(BOOK)
             except ValueError:
-                error(path, f'GitBook link leaves mapped content; use a public URL: {target}')
+                error(path, f'Handbook link leaves docs content; use a public URL: {target}')
 
 def check_navigation():
     summary = BOOK / 'SUMMARY.md'

@@ -6,6 +6,7 @@
 * [安装与接入](getting-started/installation.md)
 * [第一个业务模块](getting-started/quickstart.md)
 * [运行完整示例](getting-started/example.md)
+* [1.0.1 更新说明](releases/1.0.1.md)
 * [1.0.0 发布说明](releases/1.0.0.md)
 
 ## 管理工作台
@@ -19,6 +20,7 @@
 ## 页面搭建
 
 * [大屏、H5 与轮播](guides/visual-pages.md)
+* [条件问卷、公开通知与行业报表](guides/conditional-pages-and-antv-reports.md)
 * [表单与调查问卷](guides/surveys.md)
 * [公开分享与只读授权](guides/sharing.md)
 * [PWA、离线画布与快照](guides/offline.md)
@@ -64,6 +66,6 @@
 
 ## 文档维护
 
-* [GitBook 配置](publishing/gitbook.md)
+* [VitePress 文档结构](publishing/structure.md)
 * [自托管发布(VitePress + gh-pages)](publishing/gh-pages.md)
 * [界面与交互](appendix/design.md)

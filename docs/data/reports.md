@@ -2,6 +2,10 @@
 
 选择指标、维度、筛选和图表，预览当前业务范围的结果；同一报表可以嵌入工作台、大屏、H5 和看板。
 
+## AntV 报表
+
+1.0.1 新增 7 类 AntV 图，展示共 20 种；按角色映射维度与数值型指标，支持 1–3 个层级，继承原有嵌入、刷新、导出和离线快照权限。配置及示例见 [AntV 报表指南](../guides/conditional-pages-and-antv-reports.md)。
+
 ## 自助报表（业务报表）
 
 升级后执行 `python manage.py migrate`，加载 `0009_report`。新增 `Report` 模型与 `/api/reports/` 端点，

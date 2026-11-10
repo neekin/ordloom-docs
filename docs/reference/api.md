@@ -65,7 +65,7 @@
 所有路径相对于实际挂载点。详细定义、实参与预算见 [GraphQL](../data/graphql.md)、[数据集](../data/datasets.md)、[报表](../data/reports.md) 和 [只读服务](../data/events-and-services.md)。
 资源管理权不会自动授予源模型的业务数据权限；外部服务的 Bearer 不能访问管理写入接口，公开分享也不能执行私有报表。
 
-源码新增的答卷后台导出入口为 `GET/POST /api/pages/<id>/submission-exports/`、`GET/DELETE /api/pages/<id>/submission-exports/<run_id>/` 与 `GET /api/pages/<id>/submission-exports/<run_id>/download/`。这些接口尚未包含在 1.0.0 中，权限、创建请求和预算见 [后台导出指南](../guides/operations-and-submission-exports.md)。任务告警通过宿主命令发送，不新增网页执行 API。
+答卷后台导出入口为 `GET/POST /api/pages/<id>/submission-exports/`、`GET/DELETE /api/pages/<id>/submission-exports/<run_id>/` 与 `GET /api/pages/<id>/submission-exports/<run_id>/download/`。这些接口自 1.0.1 起提供，权限、创建请求和预算见 [后台导出指南](../guides/operations-and-submission-exports.md)。任务告警通过宿主命令发送，不新增网页执行 API。
 
 ## JSON 响应
 
@@ -117,3 +117,7 @@
 关联解析与导出可使用 `ids_json`，其内容是 JSON 数组，例如 `["crm/2026,a", "partner#1"]`。空数组表示明确的空选择；损坏的 JSON 不会退回到导出全部记录。
 
 JSON 精确文本来源、凭据意图、明细上下文请使用各组件章节的契约。自定义客户端不能只复制视觉控件而省略服务端权限检查。
+
+## 1.0.1 公开票据与数据扩展
+
+`POST /api/share/<uuid>/events/` 按现有分享密码、独立链接和数据授权领取一次性票据；WebSocket `/ws/public-page-events/` 在首帧认证，只发送组件失效信号。模板预览/创建增加可选 `jsonFields`，报表 `chart.type` 支持 `antv:*` 与角色映射。详细请求、范围和默认开关见 [1.0.1 指南](../guides/conditional-pages-and-antv-reports.md)。

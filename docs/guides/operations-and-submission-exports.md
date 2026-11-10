@@ -1,7 +1,7 @@
 # 运维预检、任务告警与答卷后台导出
 
 ::: warning 源码新增能力
-本页描述当前源码的 P1 增强，尚未包含在已发布的 Ordloom 1.0.0 中。使用对应源码安装并执行 `python manage.py migrate`，应用 `0027_operations_submission_exports`。现有同步导出、权限和默认关闭的可选功能保持原有行为。
+本页功能自 Ordloom 1.0.1 起提供。升级发行包后执行 `python manage.py migrate`，应用 `0027_operations_submission_exports`。现有同步导出、权限和默认关闭的可选功能保持原有行为。
 :::
 
 ## 运行预检
@@ -135,4 +135,4 @@ python manage.py ordloom_export_submissions --apply --prune-only --json
 
 `visualDataCatalog.supportsPush` 按当前入口、事件开关和 Channels layer 是否配置返回，并受原模型/字段权限约束；未安装 Channels 或未配置 layer 时为 false。后台模型通知与组件推送并未重新开发，现有轮询和签名兜底保持原规则。
 
-外部只读服务目录始终为 false；公开授权页仍使用轮询，不开放匿名模型订阅。true 表示配置具备后台推送能力，不保证网络可达或跨进程广播，连通性使用运行预检及实际部署验证。
+外部只读服务目录始终为 false；公开授权页可单独开启按页通知并保留轮询兜底，不开放匿名模型订阅。true 表示配置具备后台推送能力，不保证网络可达或跨进程广播，连通性使用运行预检及实际部署验证。

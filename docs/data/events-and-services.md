@@ -200,3 +200,7 @@ Session 的 CSRF 策略与服务凭据认证分开处理，依据 [Django CSRF](
 
 隔离验收：`scripts/dev_fields.py --data-services --production --port=8660` 启用本机 HTTP 测试，临时数据库使用合成业务数据。
 在 `frontend` 运行 `npm run test:data-services`，覆盖可视化授权、真实无 Session 读取、字段限制、版本隔离、轮换撤销、修订冲突、跨账号与移动界面。
+
+## 按页面授权的公开通知
+
+1.0.1 可单独启用 `ORDLOOM_PUBLIC_EVENTS`，通过同源短期票据通知已授权组件失效，数据继续按页面授权重读。连接到期续票、撤销后清除、缓存序号、限速和共享部署要求见 [公开通知指南](../guides/conditional-pages-and-antv-reports.md)。后台模型订阅与外部只读服务的能力声明保持独立。

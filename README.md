@@ -1,8 +1,8 @@
 # 序衡 Ordloom 使用手册
 
-Ordloom 1.0.0 是面向 Django 的管理工作台、可视化页面搭建和业务数据分析库。
+Ordloom 1.0.1 是面向 Django 的管理工作台、可视化页面搭建和业务数据分析库。
 
-本仓库公开维护产品手册、可运行示例和 GitBook 配置。
+本仓库公开维护产品手册、可运行示例和 VitePress 站点。
 
 ![Ordloom](docs/.gitbook/assets/ordloom-cover.svg)
 
@@ -12,14 +12,14 @@ Ordloom 1.0.0 是面向 Django 的管理工作台、可视化页面搭建和业�
 - [32 种字段组件](docs/components/overview.md)
 - [数据集与组件绑定](docs/data/datasets.md)
 - [大屏与 H5](docs/guides/visual-pages.md)
-- [1.0.0 完整发布说明](docs/releases/1.0.0.md)
-- [GitBook 同步方式](docs/publishing/gitbook.md)
+- [1.0.1 完整发布说明](docs/releases/1.0.1.md)
+- [VitePress 文档结构](docs/publishing/structure.md)
 
 ## 文档版本
 
-本手册对应 **Ordloom 1.0.0**。发行包、Python 模块和 Django 应用为 `ordloom`，设置为 `ORDLOOM_*`，字段/Admin 扩展点与管理命令为 `ordloom_*`。
+本手册对应 **Ordloom 1.0.1**。发行包、Python 模块和 Django 应用为 `ordloom`，设置为 `ORDLOOM_*`，字段/Admin 扩展点与管理命令为 `ordloom_*`。
 
-使用 `pip install ordloom==1.0.0` 安装，或使用 `ordloom[graphql]==1.0.0` 启用可选数据层。完整步骤见 [接入说明](docs/getting-started/installation.md)，默认开关和运行边界见各模块指南。
+使用 `pip install ordloom==1.0.1` 安装，或使用 `ordloom[graphql]==1.0.1` 启用可选数据层。完整步骤见 [接入说明](docs/getting-started/installation.md)，默认开关和运行边界见各模块指南。
 
 ## 本地检查
 
@@ -29,4 +29,4 @@ pip install -r examples/quickstart/requirements.txt
 python examples/quickstart/manage.py test projects --noinput
 ```
 
-GitBook 入口位于 `docs/README.md`，目录位于 `docs/SUMMARY.md`。仓库同时提供站点级与单空间 Git Sync 配置，详见同步指南。
+VitePress 首页位于 `docs/README.md`，侧栏从 `docs/SUMMARY.md` 生成。运行 `npm run docs:build` 构建；发布步骤见文档结构与 GitHub Pages 指南。

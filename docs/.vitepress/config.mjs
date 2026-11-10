@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { defineConfig } from 'vitepress'
 
-// 从 GitBook 的 SUMMARY.md 生成侧边栏,保持两套发布方式的导航一致
+// 从 SUMMARY.md 生成 VitePress 侧边栏，与仓库目录保持一致
 function sidebarFromSummary() {
   const summary = fs.readFileSync(path.resolve(__dirname, '../SUMMARY.md'), 'utf8')
   const groups = []
