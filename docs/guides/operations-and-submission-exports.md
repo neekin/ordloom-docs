@@ -49,6 +49,8 @@ python manage.py ordloom_check_tasks --apply --json
 
 不自动发送邮件、Webhook 或群机器人消息，不增加网页执行任务入口。收件人数超过预算会明确报错，不静默遗漏部分管理员。
 
+![任务告警后的只读诊断界面，使用隔离测试数据](../assets/p1-task-alert.png)
+
 ## 答卷检索
 
 ```python
@@ -91,6 +93,8 @@ ORDLOOM_SUBMISSION_EXPORTS = {
 
 默认关闭；启用后在「收集结果 → 后台导出」按当前筛选创建 CSV/Excel 任务，查看排队、生成、失败、可下载和过期状态，也可取消或清除文件。生成中的列表每 5 秒刷新，浏览器隐藏时暂停。原同步 CSV/Excel 入口保留。
 
+![按筛选条件生成的私有答卷文件，使用隔离测试数据](../assets/p1-submission-export.png)
+
 任务表与答卷、页面、账号源表目前要求在 `default` 数据库。后台导出不依赖 GraphQL。文件存于私有数据库字段，不生成媒体目录公开 URL；数据按执行时读取，记录创建任务时的提交 ID 上界，之后新增答卷不混入。保存的是筛选配置与边界，不是创建时的业务值快照。
 
 ```bash
@@ -129,6 +133,6 @@ python manage.py ordloom_export_submissions --apply --prune-only --json
 
 ## 推送能力声明
 
-`visualDataCatalog.supportsPush` 按当前入口、事件开关和 Channels layer 是否配置返回，并受原模型/字段权限约束；依赖不可用时为 false。后台模型通知与组件推送并未重新开发，现有轮询和签名兜底保持原规则。
+`visualDataCatalog.supportsPush` 按当前入口、事件开关和 Channels layer 是否配置返回，并受原模型/字段权限约束；未安装 Channels 或未配置 layer 时为 false。后台模型通知与组件推送并未重新开发，现有轮询和签名兜底保持原规则。
 
 外部只读服务目录始终为 false；公开授权页仍使用轮询，不开放匿名模型订阅。true 表示配置具备后台推送能力，不保证网络可达或跨进程广播，连通性使用运行预检及实际部署验证。
