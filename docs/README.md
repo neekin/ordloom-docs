@@ -4,7 +4,7 @@ layout: home
 hero:
   name: "序衡 Ordloom"
   text: "Django Admin 业务工作台"
-  tagline: 为 Django 项目提供清晰、统一的业务管理空间。38 种搭建选项、17 类数据图表、表单问卷、数据订阅与企业级安全——零前端工程,装上即用。
+  tagline: 为 Django 项目提供清晰、统一的业务管理空间。39 种搭建选项、18 类数据图表、表单问卷、数据订阅与企业级安全——零前端工程,装上即用。
   actions:
     - theme: brand
       text: 安装与接入

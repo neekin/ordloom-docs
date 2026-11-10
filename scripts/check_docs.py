@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the handbook without needing a GitBook account or third-party packages."""
+"""Check VitePress/Markdown navigation, local routes and executable examples."""
 import argparse
 import ast
 from collections import Counter
@@ -19,7 +19,14 @@ def error(path, message):
     errors.append(f'{path.relative_to(ROOT)}: {message}')
 
 def read_blocks(path):
-    lines = path.read_text(encoding='utf-8').splitlines()
+    source = path.read_text(encoding='utf-8')
+    front = re.match(r'^---\n(.*?)\n---\n', source, re.DOTALL)
+    home = bool(front and re.search(r'^layout:\s*home\s*$', front[1], re.MULTILINE))
+    if front:
+        for target in re.findall(r'^\s*link:\s*(\S+)\s*$', front[1], re.MULTILINE):
+            check_links(path, f'[frontmatter link]({target})')
+        source = source[front.end():]
+    lines = source.splitlines()
     visible, block, language = [], [], None
     for line in lines:
         fence = re.match(r'^```(\w*)\s*$', line)
@@ -46,7 +53,7 @@ def read_blocks(path):
             block.append(line)
     if language is not None:
         error(path, 'unclosed fenced code block')
-    if len(re.findall(r'^# ', '\n'.join(visible), re.MULTILINE)) != 1:
+    if not home and len(re.findall(r'^# ', '\n'.join(visible), re.MULTILINE)) != 1:
         error(path, 'expected exactly one page title')
     return '\n'.join(visible)
 
@@ -57,7 +64,16 @@ def check_links(path, source):
         if parsed.scheme or target.startswith('//') or not parsed.path:
             continue
         counts['links'] += 1
-        destination = (path.parent / unquote(parsed.path)).resolve()
+        local = unquote(parsed.path)
+        if path.is_relative_to(BOOK) and local.startswith('/'):
+            route = local.lstrip('/')
+            base = BOOK / route
+            markdown = base.with_suffix('.md') if base.suffix == '.html' else Path(str(base) + '.md')
+            candidates = [base, markdown, base / 'index.md', base / 'README.md', BOOK / 'public' / route]
+            if not route: candidates = [BOOK / 'README.md', BOOK / 'index.md']
+            destination = next((value.resolve() for value in candidates if value.is_file()), base.resolve())
+        else:
+            destination = (path.parent / local).resolve()
         try:
             destination.relative_to(ROOT)
         except ValueError:
@@ -82,6 +98,7 @@ def check_navigation():
     for path in sorted(expected - set(targets)):
         error(summary, f'page missing from navigation: {path.relative_to(ROOT)}')
     for config in [ROOT / '.gitbook.yaml', BOOK / '.gitbook.yaml']:
+        if not config.is_file(): continue
         match = re.search(r'^root:\s*(.+)$', config.read_text(), re.MULTILINE)
         if not match or (config.parent / match[1].strip()).resolve() != BOOK:
             error(config, 'content root does not resolve to docs/')

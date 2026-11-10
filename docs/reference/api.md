@@ -65,6 +65,8 @@
 所有路径相对于实际挂载点。详细定义、实参与预算见 [GraphQL](../data/graphql.md)、[数据集](../data/datasets.md)、[报表](../data/reports.md) 和 [只读服务](../data/events-and-services.md)。
 资源管理权不会自动授予源模型的业务数据权限；外部服务的 Bearer 不能访问管理写入接口，公开分享也不能执行私有报表。
 
+源码新增的答卷后台导出入口为 `GET/POST /api/pages/<id>/submission-exports/`、`GET/DELETE /api/pages/<id>/submission-exports/<run_id>/` 与 `GET /api/pages/<id>/submission-exports/<run_id>/download/`。这些接口尚未包含在 1.0.0 中，权限、创建请求和预算见 [后台导出指南](../guides/operations-and-submission-exports.md)。任务告警通过宿主命令发送，不新增网页执行 API。
+
 ## JSON 响应
 
 成功：

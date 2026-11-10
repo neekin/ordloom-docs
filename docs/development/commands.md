@@ -2,6 +2,8 @@
 
 Ordloom 不内置任务调度器。使用项目自己的 cron 或任务平台串行执行维护命令，写入型命令按其帮助信息显式执行。
 
+源码新增 `ordloom_check --probe`、`ordloom_check_tasks`、`ordloom_export_submissions` 与 `ordloom_reindex_submissions`；配置、显式执行和资源边界见 [运维与答卷指南](../guides/operations-and-submission-exports.md)。这些增强尚未包含在 1.0.0 中。
+
 ## 宿主工程初始化与升级
 
 先按接入说明配置应用和 URL。以下命令由已经获得宿主运维权限的操作者运行；默认输出计划，`--apply` 才写入。

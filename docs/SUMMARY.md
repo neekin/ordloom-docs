@@ -57,6 +57,7 @@
 * [字段组件扩展](development/extension.md)
 * [部署与静态资源](development/deployment.md)
 * [初始化、维护与任务诊断](development/commands.md)
+* [运维预检、告警与答卷后台导出](guides/operations-and-submission-exports.md)
 * [密码限速与诊断速查](guides/sharing-and-task-diagnostics.md)
 * [常见问题](troubleshooting.md)
 * [当前能力与后续方向](reference/roadmap.md)

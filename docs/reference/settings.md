@@ -11,6 +11,8 @@
 
 完整配置、共享缓存要求和保留边界见 [分享密码与任务诊断](../guides/sharing-and-task-diagnostics.md)。
 
+源码新增的 `ORDLOOM_TASK_ALERTS`、`ORDLOOM_SUBMISSION_EXPORTS` 默认关闭；`ORDLOOM_SUBMISSION_SEARCH_ROWS` 默认 100000，详见 [P1 运维与答卷指南](../guides/operations-and-submission-exports.md)。这些增强尚未包含在 PyPI 1.0.0 中。
+
 ## 数据、协作与集成开关
 
 以下能力按宿主需要启用；界面可见性不代替数据权限。
