@@ -11,7 +11,7 @@ python manage.py collectstatic --noinput
 
 按项目原有流程重启应用服务，并检查 `/admin/api/health/`；如果挂载点不是 `/admin/`，相应调整地址。
 
-使用 `ordloom==1.0.2`，迁移应用标签与权限前缀为 `ordloom`，应用表使用 `ordloom_*`。接入步骤见 [安装说明](../getting-started/installation.md)。
+使用 `ordloom==1.1.0`，迁移应用标签与权限前缀为 `ordloom`，应用表使用 `ordloom_*`。接入步骤见 [安装说明](../getting-started/installation.md)。
 
 分享密码限速默认开启，多 Web/命令进程需使用同一具备原子计数的默认共享缓存。后台任务运行诊断默认关闭，启用后只观测显式 `--apply`，宿主仍负责 cron/任务平台调度。
 配置、默认额度与只读权限见 [专项指南](../guides/sharing-and-task-diagnostics.md)。缓存历史不等同实时进程心跳或持久审计。

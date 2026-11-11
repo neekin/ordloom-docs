@@ -47,3 +47,8 @@ ordloom_fields = {
 使用主题变量与 AntD token，避免写死白底、深色文字。产品品牌文案集中于 `src/brand.js`，不应散布到每个组件。
 
 `src/main.jsx` 保持轻量的版本化入口；React、业务上下文及组件在带内容 hash 的启动模块加载。将注册逻辑放进启动模块，有助于保持懒加载模块使用同一个 React 与 Form 上下文。
+
+
+## 独立子应用（1.1.0 起）
+
+1.1.0 提供子应用 SDK v1，可由独立 Python 包注册权限菜单、专用页面、静态搭建组件和任务，不需修改 Ordloom 核心源码。安装、清单、属性 schema、共享 React 与部署边界见 [子应用 SDK 指南](subapplications.md)。SDK 包及生成器要求核心 1.1.0+。

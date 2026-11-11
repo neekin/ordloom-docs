@@ -1,5 +1,9 @@
 # 初始化、维护命令与任务诊断
 
+1.1.0 的微信留存使用 `ordloom_run_app_task ext:wechat.cleanup --user <账号> --apply`；默认只预览，有界清理过期授权/code 及收件，不删除绑定历史。权限与调度见 [微信维护](../guides/wechat.md)。
+
+1.1.0 的商城超时维护使用 `ordloom_run_app_task ext:shop.expire --user <账号> --apply`，默认不执行；需当前订单查看/处理权限、共享缓存及宿主调度。具体预算与状态规则见 [商城维护](../guides/shop.md)。
+
 Ordloom 不内置任务调度器。使用项目自己的 cron 或任务平台串行执行维护命令，写入型命令按其帮助信息显式执行。
 
 `ordloom_check --probe`、`ordloom_check_tasks`、`ordloom_export_submissions` 与 `ordloom_reindex_submissions` 自 1.0.1 起提供；配置、显式执行和资源边界见 [运维与答卷指南](../guides/operations-and-submission-exports.md)。1.0.2 的手动质量门禁和持续运行工具见 [稳定性指南](../guides/resilience-and-release-gates.md)。
@@ -188,3 +192,29 @@ ORDLOOM_TASK_DIAGNOSTICS = {
 
 隔离回归见 `test_share_limits.py`、`test_task_diagnostics.py`；实际 Redis 双进程检查见仓库 `scripts/test_batch1_cache.py`。
 真实浏览器与发布边界见 [验收矩阵](https://github.com/neekin/simpleui-antd/blob/main/docs/roadmap-acceptance.md)。
+
+## 1.1.0 升级与告警外发
+
+1.1.0 引入页面版本迁移 0028、告警端点用途迁移 0029 和持久入队意图迁移 0030；按原升级流程备份并执行迁移、静态收集，升级需安装 1.1.0。页面版本不依赖 GraphQL，绑定查询仍遵守原可选扩展要求。
+
+任务机器人外发沿用 `ordloom_check_tasks --apply` 评估和补偿、`ordloom_deliver_webhooks --apply` 投递；默认预览不发送。状态/站内消息/意图原子保存，入队错误使用 `external_errors` 与非零状态提示；下次调度补偿，无需新的状态变化。意图本身写入失败会回滚该次状态变化以便重试，网络失败仍由投递命令处理。
+
+- `--external-limit 100`：每次补偿最多选取数，范围 1–1000，不限制原告警评估范围。
+- `--retry-external`：显式纳入预算耗尽且未过期、当前权限和原目标配置仍有效的失败意图；不恢复已取消事件，不续期。没有 `--apply` 仍只预览。
+
+后台诊断只读，不提供执行按钮。共享缓存租约、事件唯一约束、退避、期限与安全诊断见 [P1 入队补偿指南](../guides/p1-admission-and-contracts.md)。
+
+
+## 子应用开发命令（1.1.0 起）
+
+- `ordloom_startapp <应用ID> <新目录> --label <显示名>`：生成独立包，不覆盖已有目录。
+- `ordloom_run_app_task ext:<应用ID>.<任务ID> --user <账号主键> --json`：只预览，`--apply` 才运行，复核当前权限和共享缓存短租约。
+
+示例、独立安装与当前限制见 [子应用 SDK 指南](subapplications.md)。
+
+- `ordloom_check_apps --json --snapshot <新文件>`：DB-free 子应用声明检查与基线导出；`--baseline` 用于升级复核，`--include-disabled` 包含停用声明，`--output` 保存本地报告。失败退出非零。
+- `ordloom_startsolution <配方ID> <新目录> --with-app <可选应用>`：生成独立宿主，不安装软件、不修改当前工程、不运行迁移；已有目标拒绝覆盖。
+
+详见[兼容检查与行业配方](ecosystem.md)。
+
+仓库工具 `scripts/test_subapplication.py` 检查逐应用实际测试、分发 ESM 的语法/注册/渲染；`--previous-package` / `--previous-peer` 配合 `UpgradeFixture` 验证同一专有数据库向前迁移。`--baseline` 仍只比较声明。`scripts/test_subapplication_contracts.py --negative --output <新文件>` 包含真实新增迁移、自定义账号/命名空间和破坏性反例。工具需要 build、Django、uv、Node 及核心前端开发依赖；不接触既有宿主数据库，详见 [运行与升级验收](../guides/p1-admission-and-contracts.md)。

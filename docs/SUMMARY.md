@@ -6,6 +6,7 @@
 * [安装与接入](getting-started/installation.md)
 * [第一个业务模块](getting-started/quickstart.md)
 * [运行完整示例](getting-started/example.md)
+* [1.1.0 SDK 与子应用生态](releases/1.1.0.md)
 * [1.0.2 稳定性更新说明](releases/1.0.2.md)
 * [1.0.1 更新说明](releases/1.0.1.md)
 * [1.0.0 发布说明](releases/1.0.0.md)
@@ -21,9 +22,11 @@
 ## 页面搭建
 
 * [大屏、H5 与轮播](guides/visual-pages.md)
+* [页面草稿、发布历史与回滚（1.1.0 起）](guides/p2-page-versions.md)
 * [通知恢复、取数调度与发布门禁](guides/resilience-and-release-gates.md)
 * [条件问卷、公开通知与行业报表](guides/conditional-pages-and-antv-reports.md)
 * [表单与调查问卷](guides/surveys.md)
+* [类型化条件与分步问卷（1.1.0 起）](guides/p2-survey-steps.md)
 * [公开分享与只读授权](guides/sharing.md)
 * [PWA、离线画布与快照](guides/offline.md)
 
@@ -33,6 +36,7 @@
 * [JSON、关联、时长与精确数值](data/field-types.md)
 * [数据集、版本与组件绑定](data/datasets.md)
 * [报表、看板与定时导出](data/reports.md)
+* [多序列图表与组件联动（1.1.0 起）](guides/p2-chart-linkage.md)
 * [刷新、事件与只读服务](data/events-and-services.md)
 
 ## 协作与集成
@@ -59,9 +63,16 @@
 * [API 与数据契约](reference/api.md)
 * [环境与能力边界](reference/compatibility.md)
 * [字段组件扩展](development/extension.md)
+* [子应用 SDK、脚手架与示例](development/subapplications.md)
+* [生态开放、兼容检查与行业配方](development/ecosystem.md)
+* [CMS 与基础会员（1.1.0 起）](guides/cms-and-members.md)
+* [商城 MVP（1.1.0 起）](guides/shop.md)
+* [微信接入 MVP（1.1.0 起）](guides/wechat.md)
 * [部署与静态资源](development/deployment.md)
 * [初始化、维护与任务诊断](development/commands.md)
 * [运维预检、告警与答卷后台导出](guides/operations-and-submission-exports.md)
+* [任务告警外发与运行指标（1.1.0 起）](guides/p2-operations.md)
+* [入队补偿与第三方运行、升级验收（1.1.0 起）](guides/p1-admission-and-contracts.md)
 * [密码限速与诊断速查](guides/sharing-and-task-diagnostics.md)
 * [常见问题](troubleshooting.md)
 * [当前能力与后续方向](reference/roadmap.md)

@@ -1,5 +1,11 @@
 # API 与数据契约
 
+1.1.0 的 CMS 公开只读文章接口与会员 Session/CSRF API 由宿主显式挂载，路由、请求字段和边界见 [CMS 与会员 API](../guides/cms-and-members.md)。这些接口不授予通用后台写入权限。
+
+商城另提供公开商品目录、当前会员订单及后台库存调整，使用 Session/CSRF、UUID 幂等编号与服务器核价，见 [商城 API](../guides/shop.md)。订单和库存不接受通用字段更新。
+
+微信入口包括公众号 OAuth、小程序 code 交换、自己的绑定和平台签名回调；只有平台消息端点免 CSRF，身份写入沿用会员 Cookie/CSRF。见 [微信 API](../guides/wechat.md)。OpenID 与平台 session_key 不作为客户端会员凭据。
+
 接口相对于插件挂载点。例如挂载到 `/admin/` 时，下面的 `/api/me/` 实际为 `/admin/api/me/`。
 
 `model_key` 使用 `app_label.model_name`，例如 `projects.project`。下表管理接口保留 Django Session 与 CSRF 机制，外部只读数据服务的 Bearer 凭据不能替代管理会话。
@@ -67,6 +73,16 @@
 
 答卷后台导出入口为 `GET/POST /api/pages/<id>/submission-exports/`、`GET/DELETE /api/pages/<id>/submission-exports/<run_id>/` 与 `GET /api/pages/<id>/submission-exports/<run_id>/download/`。这些接口自 1.0.1 起提供，权限、创建请求和预算见 [后台导出指南](../guides/operations-and-submission-exports.md)。任务告警通过宿主命令发送，不新增网页执行 API。
 
+## 1.1.0 API 与配置扩展
+
+1.1.0 新增 `GET/POST /api/pages/<id>/versions/`。GET 支持 `offset` 分页或 `version` 历史详情；POST 使用 `publish`、`restore` 或 `rollback` 操作，要求最新草稿修订、指纹及当前发布指针，协作工程还需配置令牌。角色与冲突规则见 [页面版本 API](../guides/p2-page-versions.md#api)。
+
+原页面详情增加草稿修订、当前发布版本与未发布修改标识；公开分享、表单、取数和通知读取当前公开快照。公开入口不提供历史版本选择或发布能力。
+
+图表增加可选 `values`、`series`，数据集绑定增加 `interaction`，报表引用增加 `reportInteraction`；后两项仅接受已有输出字段与已声明标量参数，见 [联动契约](../guides/p2-chart-linkage.md)。问卷章节、分步与类型化条件保存在原页面/题目配置，见 [问卷协议](../guides/p2-survey-steps.md)。
+
+原 `GET /api/task-diagnostics/` 增加安全运行汇总和告警外发历史，权限仍限有效超级管理员；不新增网页执行能力。配置与观测边界见 [运行指标](../guides/p2-operations.md)。
+
 ## JSON 响应
 
 成功：
@@ -129,3 +145,12 @@ JSON 精确文本来源、凭据意图、明细上下文请使用各组件章节
 公开取数和票据的临时故障返回安全 JSON 503 与 `Retry-After: 2`；共享额度耗尽返回 429 与等待提示。WebSocket 的 `retry` 指示重新取票，`refresh` 指示重新加载配置，`revoked` 指示清除旧结果并停止；消息不包含模型或业务字段。生命周期关闭 4000 可续票，配置关闭 4001 需重载，1013 可退避重试，真实撤权 4403 不自动恢复。
 
 API 客户端会把 `Retry-After` 交给只读调度层，写请求不增加自动重试。三路并发、消费者取消、读取超时、公开映射隔离与刷新模式的详细规则见 [稳定性指南](../guides/resilience-and-release-gates.md)。
+
+
+## 子应用 SDK v1（1.1.0 起）
+
+员工目录 `GET /api/extensions/`、公开静态目录 `GET /api/extensions/public/`、前端资源 `GET /api/extensions/<app>/asset/`、专用页数据 `GET /api/extensions/<app>/pages/<page>/`。菜单与服务端数据分别校验权限，公开目录仅含显式公开组件；无网页任务执行接口。详见 [接入指南](../development/subapplications.md)。
+
+`GET /api/extensions/directory/` 为重新鉴权的只读应用目录和行业配方，普通 staff 只看授权应用，超级管理员额外查看停用声明。安装参考信息为本地发行包介绍，不提供匿名安装状态或在线安装/命令执行。见[生态开放](../development/ecosystem.md)。
+
+P1 增强保留上述协议；`GET /api/task-diagnostics/` 在原 `alert_deliveries` 中新增可选 `admission`，返回入队意图状态计数与最近 10 条安全元数据。权限仍限当前有效超级管理员，`admitted` 表示已进入队列，不能当作机器人发送成功。无 HTTP 补偿/任务执行入口；由宿主命令定时执行，见 [P1 指南](../guides/p1-admission-and-contracts.md)。

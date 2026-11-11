@@ -204,3 +204,7 @@ python manage.py ordloom_export_reports --prune-only --apply --json
 恢复面板先复核当前权限，未保存的输入和修订号保留。历史/下载检查失败隐藏旧下载入口；
 排队失败重试沿用同一请求 UUID，成功后的新操作使用新编号。模拟 API 的回归入口为前端
 `npm run test:collaboration-ui`，当前浏览器已复验计划配置、排队和真实下载；生产调度需由部署工程接入。
+
+## 1.1.0 增强
+
+1.0.2 之后的源码新增 [多指标、分组序列与组件联动](../guides/p2-chart-linkage.md)，正式安装包尚未包含。嵌入报表继续使用报表当前定义，页面版本快照不会冻结报表查询或业务权限。
