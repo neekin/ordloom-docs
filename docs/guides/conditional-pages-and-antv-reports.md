@@ -3,9 +3,9 @@
 1.0.1 完成路线图 P2 与本批 P3：问卷条件显示和向后跳题、按页面授权的公开变更通知、三套行业业务模板、模板字段适配及七类 AntV 报表。同时包含运维预检、任务主动告警和答卷后台导出等 P1 功能。
 
 ```bash
-pip install --upgrade ordloom==1.0.1
+pip install --upgrade ordloom==1.0.2
 # 需要数据集、业务模板和自助报表时
-pip install --upgrade 'ordloom[graphql]==1.0.1'
+pip install --upgrade 'ordloom[graphql]==1.0.2'
 python manage.py migrate
 python manage.py collectstatic --noinput
 ```

@@ -4,9 +4,9 @@
 
 | 项目 | 要求 |
 | --- | --- |
-| 发行包 | `ordloom==1.0.1` |
+| 发行包 | `ordloom==1.0.2` |
 | 核心 | Python 3.9+、Django 4.2+，版本组合须满足 Django 自身要求 |
-| 可选数据层 | `ordloom[graphql]==1.0.1`，Python 3.10+、Django 5.2+ |
+| 可选数据层 | `ordloom[graphql]==1.0.2`，Python 3.10+、Django 5.2+ |
 | 安装产物 | 包含已构建前端；普通接入不需要 Node.js |
 | 多进程限速/观测 | Web 与任务进程使用同一原子共享缓存 |
 | 跨进程推送 | 配置 ASGI、Channels 和共享 channel layer |

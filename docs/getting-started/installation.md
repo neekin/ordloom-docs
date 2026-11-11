@@ -7,7 +7,7 @@
 发行包内置已构建的前端资源，常规安装不需要 Node.js。需要修改前端组件时再准备源码构建环境。
 
 ```bash
-pip install ordloom==1.0.1
+pip install ordloom==1.0.2
 ```
 
 发行包包含前端产物。Django 注册和 Python 导入均为 `ordloom`。
@@ -15,7 +15,7 @@ pip install ordloom==1.0.1
 可选 GraphQL 数据层需要 Python 3.10+、Django 5.2+：
 
 ```bash
-pip install 'ordloom[graphql]==1.0.1'
+pip install 'ordloom[graphql]==1.0.2'
 ```
 
 先使用核心模型管理，按业务需要再启用数据集、协作和外部集成；可选配置见 [配置参考](../reference/settings.md)。

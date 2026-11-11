@@ -121,3 +121,11 @@ JSON 精确文本来源、凭据意图、明细上下文请使用各组件章节
 ## 1.0.1 公开票据与数据扩展
 
 `POST /api/share/<uuid>/events/` 按现有分享密码、独立链接和数据授权领取一次性票据；WebSocket `/ws/public-page-events/` 在首帧认证，只发送组件失效信号。模板预览/创建增加可选 `jsonFields`，报表 `chart.type` 支持 `antv:*` 与角色映射。详细请求、范围和默认开关见 [1.0.1 指南](../guides/conditional-pages-and-antv-reports.md)。
+
+## 1.0.2 故障恢复与调度契约
+
+已启用通知的公开分享 `content.dataGrant` 增加可选 `eventRevision`，票据请求可通过 `revision` 原样回传。它是不可解释的配置校验标识，不授予数据权限；原有客户端不传该字段仍可使用旧契约。当前分享入口、密码和授权验证后，配置变化返回 HTTP 409 与 `context.code: PUBLIC_PAGE_CHANGED`，新客户端重新获取分享内容后再申请票据。
+
+公开取数和票据的临时故障返回安全 JSON 503 与 `Retry-After: 2`；共享额度耗尽返回 429 与等待提示。WebSocket 的 `retry` 指示重新取票，`refresh` 指示重新加载配置，`revoked` 指示清除旧结果并停止；消息不包含模型或业务字段。生命周期关闭 4000 可续票，配置关闭 4001 需重载，1013 可退避重试，真实撤权 4403 不自动恢复。
+
+API 客户端会把 `Retry-After` 交给只读调度层，写请求不增加自动重试。三路并发、消费者取消、读取超时、公开映射隔离与刷新模式的详细规则见 [稳定性指南](../guides/resilience-and-release-gates.md)。

@@ -2,7 +2,7 @@
 
 Ordloom 不内置任务调度器。使用项目自己的 cron 或任务平台串行执行维护命令，写入型命令按其帮助信息显式执行。
 
-源码新增 `ordloom_check --probe`、`ordloom_check_tasks`、`ordloom_export_submissions` 与 `ordloom_reindex_submissions`；配置、显式执行和资源边界见 [运维与答卷指南](../guides/operations-and-submission-exports.md)。这些增强尚未包含在 1.0.1 中。
+`ordloom_check --probe`、`ordloom_check_tasks`、`ordloom_export_submissions` 与 `ordloom_reindex_submissions` 自 1.0.1 起提供；配置、显式执行和资源边界见 [运维与答卷指南](../guides/operations-and-submission-exports.md)。1.0.2 的手动质量门禁和持续运行工具见 [稳定性指南](../guides/resilience-and-release-gates.md)。
 
 ## 宿主工程初始化与升级
 

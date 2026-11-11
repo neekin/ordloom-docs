@@ -11,7 +11,7 @@ python manage.py collectstatic --noinput
 
 按项目原有流程重启应用服务，并检查 `/admin/api/health/`；如果挂载点不是 `/admin/`，相应调整地址。
 
-使用 `ordloom==1.0.1`，迁移应用标签与权限前缀为 `ordloom`，应用表使用 `ordloom_*`。接入步骤见 [安装说明](../getting-started/installation.md)。
+使用 `ordloom==1.0.2`，迁移应用标签与权限前缀为 `ordloom`，应用表使用 `ordloom_*`。接入步骤见 [安装说明](../getting-started/installation.md)。
 
 分享密码限速默认开启，多 Web/命令进程需使用同一具备原子计数的默认共享缓存。后台任务运行诊断默认关闭，启用后只观测显式 `--apply`，宿主仍负责 cron/任务平台调度。
 配置、默认额度与只读权限见 [专项指南](../guides/sharing-and-task-diagnostics.md)。缓存历史不等同实时进程心跳或持久审计。
@@ -53,3 +53,9 @@ npm run build
 验证登录、核心模型读取和保存、关联明细、上传、用户权限、密码策略、CSV 和懒加载编辑器。检查浏览器是否出现脚本、资源路径或 Worker 错误。
 
 发行包兼容标识与当前品牌状态见[版本与兼容](../reference/compatibility.md)。
+
+## 1.0.2 的通知与发布保障
+
+已有公开通知设置可以继续使用；本版没有新增数据库迁移。临时故障会重新取票鉴权，配置变化会重载页面，真正撤权仍清除数据。多个组件共用 3 路读取队列与公开预算，Redis 应显式配置连接和读取超时，见 [恢复与调度指南](../guides/resilience-and-release-gates.md)。
+
+源码 Release 仍只接受手动触发，回归、跨进程服务、长期证据、安装迁移与打包检查失败都会阻止发布。独占服务运行器不接受既有数据库或缓存；90 秒故障冒烟不替代至少 30 分钟持续运行证据。生产代理、实际设备和目标负载应另行验收。

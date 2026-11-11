@@ -6,6 +6,7 @@
 * [安装与接入](getting-started/installation.md)
 * [第一个业务模块](getting-started/quickstart.md)
 * [运行完整示例](getting-started/example.md)
+* [1.0.2 稳定性更新说明](releases/1.0.2.md)
 * [1.0.1 更新说明](releases/1.0.1.md)
 * [1.0.0 发布说明](releases/1.0.0.md)
 
@@ -20,6 +21,7 @@
 ## 页面搭建
 
 * [大屏、H5 与轮播](guides/visual-pages.md)
+* [通知恢复、取数调度与发布门禁](guides/resilience-and-release-gates.md)
 * [条件问卷、公开通知与行业报表](guides/conditional-pages-and-antv-reports.md)
 * [表单与调查问卷](guides/surveys.md)
 * [公开分享与只读授权](guides/sharing.md)
