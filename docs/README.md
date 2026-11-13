@@ -61,8 +61,8 @@ features:
 
 ## 版本与接入
 
-本手册对应 **Ordloom 1.1.0**。发行包和模块为 `ordloom`,可选数据层为 `ordloom[graphql]`;表使用 `ordloom_*`,迁移应用标签和权限前缀为 `ordloom`,设置为 `ORDLOOM_*`,管理命令为 `ordloom_*`。
+本手册对应 **Ordloom 1.2.0**。发行包和模块为 `ordloom`,可选数据层为 `ordloom[graphql]`;表使用 `ordloom_*`,迁移应用标签和权限前缀为 `ordloom`,设置为 `ORDLOOM_*`,管理命令为 `ordloom_*`。
 
 Ordloom 基于 React 19 与 Ant Design 6,读取已注册的 `ModelAdmin`,把模型、权限、表单和业务操作呈现在一个工作台中。后端继续执行 Django 的 queryset、ModelForm、FormSet 和保存钩子。
 
-SDK、独立子应用、迁移与默认开关见 [1.1.0 发布说明](/releases/1.1.0)、[通知恢复与调度](/guides/resilience-and-release-gates)、[配置参考](/reference/settings) 和 [环境要求](/reference/compatibility)。
+CRM、到期提醒、工单、资产、活动与九应用接入见 [1.2.0 发布说明](/releases/1.2.0)；SDK、迁移与默认开关见 [1.1.0 发布说明](/releases/1.1.0)、[通知恢复与调度](/guides/resilience-and-release-gates)、[配置参考](/reference/settings) 和 [环境要求](/reference/compatibility)。
